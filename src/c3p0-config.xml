@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<c3p0-config>
+  <named-config name="mvcapp">
+    <!--数据库基本信息-->
+    <property name="user">root</property>
+    <property name="password">Zsh20121121</property>
+    <property name="driverClass">com.mysql.jdbc.Driver</property>
+    <property name="jdbcUrl">jdbc:mysql:///traveltoshare</property>
+
+    <property name="acquireIncrement">5</property>
+    <property name="initialPoolSize">10</property>
+    <property name="minPoolSize">10</property>
+    <property name="maxPoolSize">50</property>
+
+    <!-- intergalactoApp adopts a different approach to configuring statement caching -->
+    <property name="maxStatements">20</property>
+    <property name="maxStatementsPerConnection">5</property>
+  </named-config>
+</c3p0-config>

@@ -1,0 +1,23 @@
+body{
+    font-family: Candara, sans-serif;
+}
+h1{
+    color: #13227a;
+    font-size: 5vw;
+    text-align: center;
+}
+img{
+    text-align: center;
+    margin-left: 35%;
+}
+img,a{
+    display: block;
+}
+a{
+    font-size: 3vw;
+    text-align: center;
+    color: #171616;
+}
+a:hover{
+    color: darkgoldenrod;
+}
