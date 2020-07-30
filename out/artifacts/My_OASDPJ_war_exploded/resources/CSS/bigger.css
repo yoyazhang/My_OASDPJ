@@ -1,0 +1,30 @@
+#smallBox {
+    max-width: max-content;
+    position: relative;
+    z-index: 1;
+}
+#floatBox {
+    display: none;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: rgba(229, 35, 136, 0.29);
+    border: 2px solid #d4237a;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+#bigBox {
+    display: none;
+    position: fixed;
+    top: 200px;
+    right: 160px;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    z-index: 1;;
+}
+#bigBox img {
+    position: absolute;
+    z-index: 5
+}

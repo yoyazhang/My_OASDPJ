@@ -13,6 +13,7 @@
     <link href="${pageContext.request.contextPath}/resources/CSS/reset.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/CSS/HeaderNavMainFooterPic.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/CSS/PicInformation.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/CSS/bigger.css" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -47,7 +48,13 @@
 <main>
     <div class="picture">
         <figure>
-            <img src="${pageContext.request.contextPath}/resources/images/normal/medium/${requestScope.image.path}">
+            <div id="smallBox">
+                <div id="floatBox"></div>
+                <img class="originalPic" src="${pageContext.request.contextPath}/resources/images/normal/medium/${requestScope.image.path}">
+            </div>
+            <div id="bigBox">
+                <img src="${pageContext.request.contextPath}/resources/images/normal/medium/${requestScope.image.path}">
+            </div>
             <figcaption>
                 <div class="PicDetails">
                     <h3>Title:</h3>
@@ -165,6 +172,7 @@
     <address>Email: <a href = "http://mail.fudan.edu.cn/">Daddy&FudanSS@fudan.edu.cn</a></address>
 </footer>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/JavaScript/Bigger.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/JavaScript/LikeOrNot.js"></script>
 </body>
 </html>
