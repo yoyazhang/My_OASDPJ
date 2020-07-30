@@ -1,10 +1,11 @@
 div.picture{
     margin: 0 2% 2%;
 }
-div.picture>figure>img,div.picture>figure>figcaption{
+div.picture>figure div#smallBox,div.picture>figure>figcaption{
     display: inline-block;
+    z-index: 1;
 }
-div.picture>figure>img{
+div.picture>figure img.originalPic{
     width: auto;
     max-width: 100%;
 }
