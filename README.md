@@ -106,16 +106,22 @@ logo的配色与网站主色调一致：飞机代表travel旅行，深蓝色调�
    + 登录后：在点进一张图片的详细信息、picInfo这一servlet向数据库获取信息时，同时向history表中插入一条有图片id和用户uid的信息。如果之前已经由相同的信息
    就将前者删除再记录新的这条信息。而展示足迹时选取表中uid为对应用户的最后十张图。
 3. 用户密码强弱的ui醒目提示：对输入框绑定在其失去焦点时调用判断强弱的函数。此函数首先清除提示条（bootstrap中的progress bar组件）中已有信息。接着获取
-密码内容：·let password = document.getElementsByName("password")[0].value；·，然后根据不同的正则表达式对其进行判断，显示各自的结果（为强则进度条为绿，
+密码内容：`let password = document.getElementsByName("password")[0].value；`，然后根据不同的正则表达式对其进行判断，显示各自的结果（为强则进度条为绿，
 100%，提示”strong”；中等强度为黄色，60%，提示”safe”……不合法则为红色，100%，提示”Invalid！”）
 4. 验证码：ValidateCode类生成一个随机数字、字母（长度、干扰线数量可指定）的验证码；verifyCodeServlet利用new语句生成此类的新实例，并向session中设置验证码
-的值作为记录；登录与注册页面上设置img元素，其src地址为向此servlet进行请求，即：· src="${pageContext.request.contextPath}/verifyCode"·。
+的值作为记录；登录与注册页面上设置img元素，其src地址为向此servlet进行请求，即：` src="${pageContext.request.contextPath}/verifyCode"`。
 5. 评论功能：点赞、排序、删除自己的评论都为ajax向后端发送异步请求得到。发表新评论则相当于提交一个表单
    + 点击时间和热度按钮实现重新排序的完整过程为: 首先将当前按钮的图标改为未选中状态的蓝色，class变为noRankByxx，删去所有评论内容。接着用ajax向servlet
    用post方式发送请求，请求结果用json格式传回给js，根据请求结果创建对应的div（comment）和其中子标签（比如是可点赞/已赞/未登录不能点赞，这条评论该用户
    是否可删除等），并append到commentsArea这一div中。
    + 由于这个重新排序无法使用刷新的方式来更新资源（sad），因此需要注意也是我第一次忽视的地方就是js删去原来所有标签之后创建和加入的标签并没有添加对应函数，
    因此需要在ajax成功返回会调用的函数内加上绑定这一语句。
+   ``` $(this).attr("src",application+"/resources/images/icons/时间-on.png");
+    $(this).attr("class","rankByTime");
+    $(".rankByHot").attr("src",application+"/resources/images/icons/热度.png");
+    $(".rankByHot").attr("class","notRankByHot");
+    $(".notRankByHot").bind("click",changeCommentHot);
+	```
 6. 局部放大功能：
    + 放大镜出现与消失的依据：加载页面时就设置放大部分和图片中选图框的display为none，当用户鼠标移到图片上时，将其display变为”block”；
    + 放大镜随着鼠标移动的实现：得到鼠标的位置，通过到容器的left距离和top距离确定位置，考虑是否鼠标顶在边框上的可能（移动框不可以超出边框），得到矫正异常
